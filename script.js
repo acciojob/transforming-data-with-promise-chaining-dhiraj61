@@ -45,29 +45,20 @@ const promise5 = (value) => {
 
 function solve(inp){
 	promise1(inp).then((res)=>{
-		output.textContent = `Result: ${res}`;
-		promise2(res).then((res)=>{
-			output.textContent = `Result: ${res}`;
-			promise3(res).then((res)=>{
-				output.textContent = `Result: ${res}`;
-				promise4(res).then((res)=>{
-					output.textContent = `Result: ${res}`;
-					promise5(res).then((res)=>{
-						output.textContent = `Final Result: ${res}`;
-					})
-				})
-			})
-		})
-	})
-	// output.textContent = p1;
-	// let p2 = await promise1(p1);
-	// output.textContent = p2;
-	// let p3 = await promise1(p2);
-	// output.textContent = p3;
-	// let p4 = await promise1(p3);
-	// output.textContent = p4;
-	// let p5 = await promise1(p4);
-	// output.textContent = p5;
+	output.textContent = `Result: ${res}`;
+	return promise2(res);
+}).then((res)=>{
+	output.textContent = `Result: ${res}`;
+	return promise3(res);
+}).then((res)=>{
+	output.textContent = `Result: ${res}`;
+	return promise4(res);
+}).then((res)=>{
+	output.textContent = `Result: ${res}`;
+	return promise5(res);
+}).then((res)=>{
+	output.textContent = `Result: ${res}`;
+})
 }
 
 btn.addEventListener("click",(e)=>{
